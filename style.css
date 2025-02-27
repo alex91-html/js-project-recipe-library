@@ -24,13 +24,63 @@ header {
   display: flex;
   gap: 20px;
   flex-direction: column;
-  align-items: left;
+  align-items: flex-start;
   margin: 20px 0;
 }
 
+
+
 .filter-group,
 .sort-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
   margin-bottom: 20px;
+}
+
+.tags {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+button {
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 18px;
+  color: #0018A4;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.filter-btn {
+  background: #CCFFE2;
+}
+
+.filter-btn:hover {
+  border-color: #0018A4;
+}
+
+.filter-btn:active {
+  background-color: #0018A4;
+  color: white;
+}
+
+.sort-btn {
+  background-color: #FCECEA;
+}
+
+.sort-btn:hover {
+  border-color: #0018A4;
+  background-color: #EC6F8A;
+  color: white;
+}
+
+.sort-btn:active {
+  background-color: #EC6F8A;
+  color: white;
 }
 
 .recipes {
@@ -44,7 +94,8 @@ header {
   background-color: white;
   border-radius: 16px;
   padding: 16px 16px 24px 16px;
-  border: 1px solid #E9E9E9;
+  border: 1.5px solid #E9E9E9;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .recipe-card img {
@@ -101,7 +152,7 @@ a {
 a:hover .recipe-card {
   cursor: pointer;
   box-shadow: 0px 0px 30px 0px rgba(0, 24, 164, 0.20);
-  border: 2px solid #0018A4;
+  border: 1.5px solid #0018A4;
 }
 
 ul {
@@ -118,6 +169,11 @@ h2 {
   .filters {
     flex-direction: row;
     gap: 88px;
+  }
+
+  .tags {
+    flex-direction: row;
+    margin: 0 px;
   }
 }
 
