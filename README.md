@@ -3,5 +3,5 @@
 
 <h3>To do:</h3>
 <ul>
-<li>js</li>
+<li>work on js</li>
 </ul>

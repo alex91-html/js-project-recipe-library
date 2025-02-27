@@ -98,6 +98,12 @@ button {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
+.place-holder {
+  min-height: 100%;
+  display: flex;
+  background-color: #FFFFFF;
+}
+
 .recipe-card img {
   width: 100%;
   border-radius: 12px;
