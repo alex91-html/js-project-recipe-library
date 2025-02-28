@@ -28,8 +28,6 @@ header {
   margin: 20px 0;
 }
 
-
-
 .filter-group,
 .sort-group {
   display: flex;
@@ -46,40 +44,41 @@ header {
   gap: 12px;
 }
 
-button {
+input[type="button"].filter-btn,
+input[type="button"].sort-btn {
   padding: 8px 16px;
   border-radius: 50px;
   font-size: 18px;
   color: #0018A4;
   border: 2px solid transparent;
   cursor: pointer;
-}
-
-.filter-btn {
   background: #CCFFE2;
 }
 
-.filter-btn:hover {
+input[type="button"].filter-btn:hover,
+input[type="button"].sort-btn:hover {
   border-color: #0018A4;
 }
 
-.filter-btn:active {
+
+input[type="button"].filter-btn:active {
   background-color: #0018A4;
   color: white;
 }
 
-.sort-btn {
-  background-color: #FCECEA;
-}
-
-.sort-btn:hover {
-  border-color: #0018A4;
-  background-color: #EC6F8A;
+input[type="button"].sort-btn:active {
+  background-color: #0018A4;
   color: white;
+  border-color: transparent;
 }
 
-.sort-btn:active {
-  background-color: #EC6F8A;
+input[type="button"].sort-btn {
+  background-color: #FCECEA;
+
+}
+
+input[type="button"].sort-btn:hover {
+  background-color: #ED708A;
   color: white;
 }
 
@@ -146,7 +145,6 @@ button {
 .divider {
   border: none;
   border-top: 1px solid #E9E9E9;
-  /* margin: 20px 0; */
 }
 
 a {
