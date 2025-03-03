@@ -25,52 +25,56 @@
       <h2>Filter on diets</h2>
       <div class="tags">
         <input
-          type="button"
+          type="checkbox"
           class="filter-btn"
-          data-filter="all"
           value="All"
         >
+        <label for="all">All</label>
         <input
-          type="button"
+          type="checkbox"
           class="filter-btn"
-          data-filter="vegan"
           value="Vegan"
         >
+        <label for="vegan">Vegan</label>
         <input
-          type="button"
+          type="checkbox"
           class="filter-btn"
-          data-filter="vegetarian"
           value="Vegetarian"
         >
+        <label for="vegetarian">Vegetarian</label>
         <input
-          type="button"
+          type="checkbox"
           class="filter-btn"
-          data-filter="gluten-free"
           value="Gluten-free"
         >
+        <label for="gluten-free">Gluten-free</label>
         <input
-          type="button"
+          type="checkbox"
           class="filter-btn"
-          data-filter="dairy-free"
           value="Dairy-free"
         >
+        <label for="dairy-free">Dairy-free</label>
       </div>
     </div>
     <div class="sort-group">
       <h2>Sort by cooking time</h2>
       <div class="tags">
         <input
-          type="button"
+          type="radio"
           class="sort-btn"
-          data-sort="descending"
+          id="sort-descending"
+          name="sort"
           value="Descending"
         >
+        <label for="sort-descending">Descending</label>
         <input
-          type="button"
+          type="radio"
           class="sort-btn"
-          data-sort="ascending"
+          id="sort-ascending"
+          name="sort"
           value="Ascending"
         >
+        <label for="sort-ascending">Ascending</label>
       </div>
     </div>
   </section>
@@ -80,6 +84,8 @@
     <!-- place holder -->
     <article class="place-holder recipe-card">
       <h2 class="title">Temporary placeholder for filters/sorting options:</h2>
+      <section id="interactions">
+      </section>
 
     </article>
     <!--  start here-->

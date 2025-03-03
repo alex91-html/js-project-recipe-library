@@ -44,8 +44,9 @@ header {
   gap: 12px;
 }
 
-input[type="button"].filter-btn,
-input[type="button"].sort-btn {
+/* Filter and sort buttons 
+input.filter-btn,
+input.sort-btn {
   padding: 8px 16px;
   border-radius: 50px;
   font-size: 18px;
@@ -55,33 +56,33 @@ input[type="button"].sort-btn {
   background: #CCFFE2;
 }
 
-input[type="button"].filter-btn:hover,
-input[type="button"].sort-btn:hover {
+input.filter-btn:hover,
+input.sort-btn:hover {
   border-color: #0018A4;
 }
 
 
-input[type="button"].filter-btn:active {
+input.filter-btn:active {
   background-color: #0018A4;
   color: white;
 }
 
-input[type="button"].sort-btn:active {
+input.sort-btn:active {
   background-color: #0018A4;
   color: white;
   border-color: transparent;
 }
 
-input[type="button"].sort-btn {
+input.sort-btn {
   background-color: #FCECEA;
 
 }
 
-input[type="button"].sort-btn:hover {
+input.sort-btn:hover {
   background-color: #ED708A;
   color: white;
 }
-
+*/
 .recipes {
   display: grid;
   grid-template-columns: 1fr;
