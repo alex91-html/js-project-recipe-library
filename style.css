@@ -44,6 +44,43 @@ header {
   gap: 12px;
 }
 
+input[type="button"].filter-btn,
+input[type="button"].sort-btn {
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 18px;
+  color: #0018A4;
+  border: 2px solid transparent;
+  cursor: pointer;
+  background: #CCFFE2;
+
+}
+
+input[type="button"].filter-btn:hover,
+input[type="button"].sort-btn:hover {
+  border-color: #0018A4;
+}
+
+input[type="button"].filter-btn:active {
+  background-color: #0018A4;
+  color: white;
+}
+
+input[type="button"].sort-btn:active {
+  background-color: #0018A4;
+  color: white;
+  border-color: transparent;
+}
+
+input[type="button"].sort-btn {
+  background-color: #FCECEA;
+}
+
+input[type="button"].sort-btn:hover {
+  background-color: #ED708A;
+  color: white;
+}
+
 /* Filter and sort buttons 
 input.filter-btn,
 input.sort-btn {
