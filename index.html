@@ -24,85 +24,80 @@
     <div class="filter-group">
       <h2>Filter on diets</h2>
       <div class="tags">
-        <button
-          id="all-filter"
-          class="btn"
-          aria-label="Clear all filters"
-        >All</button>
+        <input
+          type="checkbox"
+          id="filter-all"
+          value="All"
+        >
         <label
           class="btn"
-          for="vegetarian"
+          for="filter-all"
+        >All</label>
+        <input
+          type="checkbox"
+          id="filter-vegan"
+          value="Vegan"
         >
-          <input
-            type="checkbox"
-            name="tag"
-            value="vegetarian"
-            id="vegetarian"
-          > Vegetarian
-        </label>
         <label
           class="btn"
-          for="vegan"
+          for="filter-vegan"
+        >Vegan</label>
+        <input
+          type="checkbox"
+          id="filter-vegetarian"
+          value="Vegetarian"
         >
-          <input
-            type="checkbox"
-            name="tag"
-            value="vegan"
-            id="vegan"
-          > Vegan
-        </label>
         <label
           class="btn"
-          for="gluten-free"
+          for="filter-vegetarian"
+        >Vegetarian</label>
+        <input
+          type="checkbox"
+          id="filter-gluten-free"
+          value="Gluten-free"
         >
-          <input
-            type="checkbox"
-            name="tag"
-            value="gluten-free"
-            id="gluten-free"
-          > Gluten-free
-        </label>
         <label
           class="btn"
-          for="dairy-free"
+          for="filter-gluten-free"
+        >Gluten-free</label>
+        <input
+          type="checkbox"
+          id="filter-dairy-free"
+          value="Dairy-free"
         >
-          <input
-            type="checkbox"
-            name="tag"
-            value="dairy-free"
-            id="dairy-free"
-          > Dairy-free
-        </label>
+        <label
+          class="btn"
+          for="filter-dairy-free"
+        >Dairy-free</label>
       </div>
     </div>
     <div class="sort-group">
       <h2>Sort by cooking time</h2>
       <div class="tags">
+        <input
+          type="radio"
+          id="sort-shortest"
+          name="sort"
+          value="Shortest"
+        >
         <label
           class="btn"
-          for="shortest"
+          for="sort-shortest"
+        >Shortest</label>
+        <input
+          type="radio"
+          id="sort-longest"
+          name="sort"
+          value="Longest"
         >
-          <input
-            type="radio"
-            name="sort"
-            value="Shortest"
-            id="shortest"
-          > Shortest
-        </label>
         <label
           class="btn"
-          for="longest"
-        >
-          <input
-            type="radio"
-            name="sort"
-            value="Longest"
-            id="longest"
-          > Longest
-        </label>
+          for="sort-longest"
+        >Longest</label>
       </div>
     </div>
   </section>
+
 
   <!-- Recipe cards -->
   <main class="recipes">

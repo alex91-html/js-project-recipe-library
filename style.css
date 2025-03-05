@@ -45,6 +45,7 @@ header {
 }
 
 /* Filter and sort buttons */
+
 .btn {
   display: inline-block;
   padding: 8px 16px;
@@ -59,12 +60,17 @@ header {
   background: #CCFFE2;
 }
 
-.sort-group .btn {
-  background: #FCECEA;
-}
-
 .filter-group .btn:hover {
   border-color: #0018A4;
+}
+
+.filter-group input[type="checkbox"]:checked+label {
+  background-color: #0018A4;
+  color: white;
+}
+
+.sort-group .btn {
+  background: #FCECEA;
 }
 
 .sort-group .btn:hover {
@@ -73,18 +79,13 @@ header {
   color: white;
 }
 
-.filter-group input[type="checkbox"]:checked+label {
-  background-color: #0018A4;
-  color: white;
-}
-
 .sort-group input[type="radio"]:checked+label {
   background-color: #ED708A;
   color: white;
 }
 
-.btn input {
-  display: none;
+.sort-group input[type="radio"]:not(:checked)+label:hover {
+  background-color: #F5A5B3;
 }
 
 .filter-group input[type="checkbox"],
@@ -92,72 +93,6 @@ header {
   display: none;
 }
 
-
-/* 
-input[type="button"].filter-btn:hover,
-input[type="button"].sort-btn:hover {
-  border-color: #0018A4;
-}
-
-input[type="button"].filter-btn:active {
-  background-color: #0018A4;
-  color: white;
-}
-
-input[type="button"].sort-btn:active {
-  background-color: #0018A4;
-  color: white;
-  border-color: transparent;
-}
-
-input[type="button"].sort-btn {
-  background-color: #FCECEA;
-}
-
-input[type="button"].sort-btn:hover {
-  background-color: #ED708A;
-  color: white;
-} */
-
-/* Filter and sort buttons 
-input.filter-btn,
-input.sort-btn {
-  padding: 8px 16px;
-  border-radius: 50px;
-  font-size: 18px;
-  color: #0018A4;
-  border: 2px solid transparent;
-  cursor: pointer;
-  background: #CCFFE2;
-}
-
-input.filter-btn:hover,
-input.sort-btn:hover {
-  border-color: #0018A4;
-}
-
-
-input.filter-btn:active {
-  background-color: #0018A4;
-  color: white;
-}
-
-input.sort-btn:active {
-  background-color: #0018A4;
-  color: white;
-  border-color: transparent;
-}
-
-input.sort-btn {
-  background-color: #FCECEA;
-
-}
-
-input.sort-btn:hover {
-  background-color: #ED708A;
-  color: white;
-}
-*/
 .recipes {
   display: grid;
   grid-template-columns: 1fr;
