@@ -111,7 +111,13 @@ header {
 .place-holder {
   min-height: 100%;
   display: flex;
+  flex-direction: column;
   background-color: #FFFFFF;
+}
+
+#message-section {
+  margin-top: 20px;
+  line-height: 1.5;
 }
 
 .recipe-card img {
