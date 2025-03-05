@@ -24,53 +24,82 @@
     <div class="filter-group">
       <h2>Filter on diets</h2>
       <div class="tags">
-        <input
-          type="button"
-          class="filter-btn"
-          data-filter="all"
-          value="All"
+        <button
+          id="all-filter"
+          class="btn"
+          aria-label="Clear all filters"
+        >All</button>
+        <label
+          class="btn"
+          for="vegetarian"
         >
-        <input
-          type="button"
-          class="filter-btn"
-          data-filter="vegan"
-          value="Vegan"
+          <input
+            type="checkbox"
+            name="tag"
+            value="vegetarian"
+            id="vegetarian"
+          > Vegetarian
+        </label>
+        <label
+          class="btn"
+          for="vegan"
         >
-        <input
-          type="button"
-          class="filter-btn"
-          data-filter="vegetarian"
-          value="Vegetarian"
+          <input
+            type="checkbox"
+            name="tag"
+            value="vegan"
+            id="vegan"
+          > Vegan
+        </label>
+        <label
+          class="btn"
+          for="gluten-free"
         >
-        <input
-          type="button"
-          class="filter-btn"
-          data-filter="gluten-free"
-          value="Gluten-free"
+          <input
+            type="checkbox"
+            name="tag"
+            value="gluten-free"
+            id="gluten-free"
+          > Gluten-free
+        </label>
+        <label
+          class="btn"
+          for="dairy-free"
         >
-        <input
-          type="button"
-          class="filter-btn"
-          data-filter="dairy-free"
-          value="Dairy-free"
-        >
+          <input
+            type="checkbox"
+            name="tag"
+            value="dairy-free"
+            id="dairy-free"
+          > Dairy-free
+        </label>
       </div>
     </div>
     <div class="sort-group">
       <h2>Sort by cooking time</h2>
       <div class="tags">
-        <input
-          type="button"
-          class="sort-btn"
-          data-sort="descending"
-          value="Descending"
+        <label
+          class="btn"
+          for="shortest"
         >
-        <input
-          type="button"
-          class="sort-btn"
-          data-sort="ascending"
-          value="Ascending"
+          <input
+            type="radio"
+            name="sort"
+            value="Shortest"
+            id="shortest"
+          > Shortest
+        </label>
+        <label
+          class="btn"
+          for="longest"
         >
+          <input
+            type="radio"
+            name="sort"
+            value="Longest"
+            id="longest"
+          > Longest
+        </label>
       </div>
     </div>
   </section>

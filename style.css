@@ -44,18 +44,56 @@ header {
   gap: 12px;
 }
 
-input[type="button"].filter-btn,
-input[type="button"].sort-btn {
+/* Filter and sort buttons */
+.btn {
+  display: inline-block;
   padding: 8px 16px;
-  border-radius: 50px;
+  border: 2px solid transparent;
   font-size: 18px;
   color: #0018A4;
-  border: 2px solid transparent;
   cursor: pointer;
-  background: #CCFFE2;
-
+  border-radius: 50px;
 }
 
+.filter-group .btn {
+  background: #CCFFE2;
+}
+
+.sort-group .btn {
+  background: #FCECEA;
+}
+
+.filter-group .btn:hover {
+  border-color: #0018A4;
+}
+
+.sort-group .btn:hover {
+  border-color: #0018A4;
+  background-color: #ED708A;
+  color: white;
+}
+
+.filter-group input[type="checkbox"]:checked+label {
+  background-color: #0018A4;
+  color: white;
+}
+
+.sort-group input[type="radio"]:checked+label {
+  background-color: #ED708A;
+  color: white;
+}
+
+.btn input {
+  display: none;
+}
+
+.filter-group input[type="checkbox"],
+.sort-group input[type="radio"] {
+  display: none;
+}
+
+
+/* 
 input[type="button"].filter-btn:hover,
 input[type="button"].sort-btn:hover {
   border-color: #0018A4;
@@ -79,7 +117,7 @@ input[type="button"].sort-btn {
 input[type="button"].sort-btn:hover {
   background-color: #ED708A;
   color: white;
-}
+} */
 
 /* Filter and sort buttons 
 input.filter-btn,
