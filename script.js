@@ -167,11 +167,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const radios = document.querySelectorAll('.sort-group input[type="radio"]');
 
   // Load all recipes initially
-  const loadRecipes = () => {
+  const loadRecipes = (recipe) => {
+    recipeContainer.innerHTML = '';
     recipes.forEach(recipe => {
       const ingredientsList = recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('');
 
-      recipeContainer.innerHTML += `
+      const recipeCard = `
         <a href="#">
           <article class="recipe-card">
             <img src="${recipe.image}" alt="${recipe.title}">
@@ -204,9 +205,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  // Function to filter and sort the recipes based on selected options
+  const filterRecipes = () => {
+    let filteredRecipes = recipes;
 
+    // Filter based on selected checkboxes
+    const selectedFilters = [];
+    checkboxes.forEach(checkbox => {
+      if (checkbox.checked && checkbox.id !== 'filter-all') {
+        selectedFilters.push(checkbox.value);
+      }
+    });
 
-  // Function to update the message section based on selected filters
+    if (selectedFilters.length > 0) {
+      filteredRecipes = recipes.filter(recipe =>
+        selectedFilters.every(filter => recipe.diets.includes(filter))
+      );
+    }
+
+    // Sort recipes based on cooking time if any sorting is selected
+    const selectedSort = [...radios].find(radio => radio.checked)?.value;
+
+    if (selectedSort === 'Shortest') {
+      filteredRecipes = filteredRecipes.sort((a, b) => a.readyInMinutes - b.readyInMinutes);
+    } else if (selectedSort === 'Longest') {
+      filteredRecipes = filteredRecipes.sort((a, b) => b.readyInMinutes - a.readyInMinutes);
+    }
+
+    // Render filtered and sorted recipes
+    loadRecipes(filteredRecipes);
+  };
+
+  // updateMessage function - dynamic text in message-section
   const updateMessage = () => {
     let message = '';
 
@@ -238,27 +268,30 @@ document.addEventListener("DOMContentLoaded", () => {
     messageSection.innerHTML = message || 'Hey hey hey, welcome!';
   };
 
+  // clear selection function 
   const clearSelections = () => {
     checkboxes.forEach(checkbox => checkbox.checked = false);
     radios.forEach(radio => radio.checked = false);
   };
 
-  // Adding event listeners directly inside init function
+  // Initialization Function, event listenere - calling function 
   const init = () => {
     checkboxes.forEach(checkbox => {
       checkbox.addEventListener('change', () => {
         updateMessage();
+        filterRecipes();
       });
     });
 
     radios.forEach(radio => {
       radio.addEventListener('change', () => {
         updateMessage();
+        filterRecipes();
       });
     });
 
     updateMessage();
-    loadRecipes();
+    loadRecipes(recipes);
   };
 
   init();
