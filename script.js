@@ -167,14 +167,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const radios = document.querySelectorAll('.sort-group input[type="radio"]');
 
   // Load all recipes initially
-  const loadRecipes = (recipes) => {
-    recipeContainer.innerHTML = '';
-
+  const loadRecipes = () => {
     recipes.forEach(recipe => {
       const ingredientsList = recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('');
 
-      const recipeCard = `
-        <a href="${recipe.sourceUrl}">
+      recipeContainer.innerHTML += `
+        <a href="#">
           <article class="recipe-card">
             <img src="${recipe.image}" alt="${recipe.title}">
             <h2 class="title">${recipe.title}</h2>
@@ -260,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     updateMessage();
-    loadRecipes(recipes);
+    loadRecipes();
   };
 
   init();

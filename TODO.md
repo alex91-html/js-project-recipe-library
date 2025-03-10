@@ -5,6 +5,7 @@
 - [x] Update the CSS 
 - [x] fix problem layout 
 - [] get placeholder images?
+- [] MESSED UP THE JAVASCRIPT
 - [] filter amongst the recipes in the array
 - [] sort the recipes in the array
 - [] get a random recipe from the array
