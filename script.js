@@ -160,22 +160,21 @@ const recipes = [
   }
 ]
 
-
 document.addEventListener("DOMContentLoaded", () => {
   const recipeContainer = document.getElementById('recipeAPI');
   const messageSection = document.getElementById('message-section');
   const checkboxes = document.querySelectorAll('.filter-group input[type="checkbox"]');
   const radios = document.querySelectorAll('.sort-group input[type="radio"]');
 
-
-  const loadRecipes = () => {
+  // Load all recipes initially
+  const loadRecipes = (recipes) => {
     recipeContainer.innerHTML = '';
 
     recipes.forEach(recipe => {
       const ingredientsList = recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('');
 
       const recipeCard = `
-        <a href="#">
+        <a href="${recipe.sourceUrl}">
           <article class="recipe-card">
             <img src="${recipe.image}" alt="${recipe.title}">
             <h2 class="title">${recipe.title}</h2>
@@ -191,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
               <div class="info-item">
                 <span class="label">Servings:</span>
-                <span class="value">${recipe.servings} minutes</span>
+                <span class="value">${recipe.servings}</span>
               </div>
             </div>
             <hr class="divider">
@@ -207,8 +206,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // here starts the magic, the function that will update the message
-  // based on the user's selections
+
+
+  // Function to update the message section based on selected filters
   const updateMessage = () => {
     let message = '';
 
@@ -218,18 +218,17 @@ document.addEventListener("DOMContentLoaded", () => {
       message = 'You greedy pig!';
       clearSelections();
     } else {
-
       if (document.getElementById('filter-vegan').checked) {
-        message += 'Oh I see,what about the fish and some good tasty egss from time to time? Are you sure you are not Vegetarian? Maybe?';
+        message += 'Oh I see, what about the fish and some tasty eggs from time to time? Are you sure you are not Vegetarian? Maybe?';
       }
       if (document.getElementById('filter-vegetarian').checked) {
         message += '<br><br>Good choice, better cutting on all that meat!';
       }
       if (document.getElementById('filter-gluten-free').checked) {
-        message += '<br><br>I\'m with you, gluten it\'s poisoned!';
+        message += '<br><br>I\'m with you, gluten is poisoned!';
       }
       if (document.getElementById('filter-dairy-free').checked) {
-        message += '<br><br>hmm are you sure cheese is something you can fully give up?';
+        message += '<br><br>Hmm, are you sure cheese is something you can fully give up?';
       }
       if (document.getElementById('sort-shortest').checked) {
         message += '<br><br>Trying to impress someone with little time?';
@@ -238,30 +237,31 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    messageSection.innerHTML = message || 'Hey hey hey welcome!';
+    messageSection.innerHTML = message || 'Hey hey hey, welcome!';
   };
-  // here it ends
 
   const clearSelections = () => {
     checkboxes.forEach(checkbox => checkbox.checked = false);
     radios.forEach(radio => radio.checked = false);
   };
 
-  const addEventListeners = () => {
+  // Adding event listeners directly inside init function
+  const init = () => {
     checkboxes.forEach(checkbox => {
-      checkbox.addEventListener('change', updateMessage);
+      checkbox.addEventListener('change', () => {
+        updateMessage();
+      });
     });
 
     radios.forEach(radio => {
-      radio.addEventListener('change', updateMessage);
+      radio.addEventListener('change', () => {
+        updateMessage();
+      });
     });
-  };
 
-
-  const init = () => {
-    addEventListeners();
     updateMessage();
-    loadRecipes();
+    loadRecipes(recipes);
   };
+
   init();
 });

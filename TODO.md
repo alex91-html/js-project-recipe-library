@@ -1,12 +1,11 @@
 ### Task list
-
 - [x] insert recepie cards 
 - [x] Update the HTML 
 - [x] Update the JavaScript
 - [x] Update the CSS 
 - [x] fix problem layout 
-- [ ] get placeholder images?
-- [ ] filter amongst the recipes in the array
-- [ ] sort the recipes in the array
-- [ ] get a random recipe from the array
-- [ ] ...
+- [] get placeholder images?
+- [] filter amongst the recipes in the array
+- [] sort the recipes in the array
+- [] get a random recipe from the array
+- [] ...
