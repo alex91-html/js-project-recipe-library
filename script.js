@@ -135,7 +135,7 @@ const recipes = [
     readyInMinutes: 90,
     servings: 5,
     sourceUrl: "https://example.com/beef-stew",
-    diets: [],
+    diets: ["meat-based"],
     cuisine: "European",
     ingredients: [
       "beef chunks",
@@ -157,8 +157,200 @@ const recipes = [
     ],
     pricePerServing: 5.5,
     popularity: 80
+  },
+  {
+    id: 8,
+    title: "Vegan & Gluten-Free Sweet Potato Curry",
+    image: "./sweet-potato-curry.webp",
+    readyInMinutes: 40,
+    servings: 4,
+    sourceUrl: "https://example.com/vegan-gluten-free-sweet-potato-curry",
+    diets: ["vegan", "gluten-free"],
+    cuisine: "Indian",
+    ingredients: [
+      "sweet potatoes",
+      "coconut milk",
+      "spinach",
+      "onion",
+      "garlic",
+      "curry powder",
+      "chickpeas",
+      "ginger",
+      "vegetable broth",
+      "olive oil",
+      "salt",
+      "black pepper"
+    ],
+    pricePerServing: 3.0,
+    popularity: 92
+  },
+  {
+    id: 9,
+    title: "Vegetarian & Dairy-Free Stuffed Peppers",
+    image: "./stuffed-peppers.webp",
+    readyInMinutes: 45,
+    servings: 4,
+    sourceUrl: "https://example.com/vegetarian-dairy-free-stuffed-peppers",
+    diets: ["vegetarian", "dairy-free"],
+    cuisine: "Mediterranean",
+    ingredients: [
+      "bell peppers",
+      "quinoa",
+      "black beans",
+      "tomato",
+      "onion",
+      "garlic",
+      "spices",
+      "avocado",
+      "olive oil",
+      "lime juice"
+    ],
+    pricePerServing: 4.2,
+    popularity: 85
+  },
+  {
+    id: 10,
+    title: "Paleo & Keto Beef Stir-Fry",
+    image: "./beef-stir-fry.webp",
+    readyInMinutes: 25,
+    servings: 2,
+    sourceUrl: "https://example.com/paleo-keto-beef-stir-fry",
+    diets: ["paleo", "keto"],
+    cuisine: "Asian",
+    ingredients: [
+      "beef strips",
+      "broccoli",
+      "bell pepper",
+      "zucchini",
+      "ginger",
+      "garlic",
+      "sesame oil",
+      "coconut aminos",
+      "green onion",
+      "almond flour"
+    ],
+    pricePerServing: 6.0,
+    popularity: 90
+  },
+  {
+    id: 11,
+    title: "Gluten-Free & Dairy-Free Chocolate Cake",
+    image: "./chocolate-cake.webp",
+    readyInMinutes: 60,
+    servings: 8,
+    sourceUrl: "https://example.com/gluten-free-dairy-free-chocolate-cake",
+    diets: ["gluten-free", "dairy-free"],
+    cuisine: "Dessert",
+    ingredients: [
+      "gluten-free flour",
+      "cocoa powder",
+      "baking soda",
+      "apple cider vinegar",
+      "coconut oil",
+      "almond milk",
+      "vanilla extract",
+      "maple syrup",
+      "sea salt"
+    ],
+    pricePerServing: 3.5,
+    popularity: 95
+  },
+  {
+    id: 12,
+    title: "Vegan, Gluten-Free & Soy-Free Stir-Fry",
+    image: "./stir-fry.webp",
+    readyInMinutes: 30,
+    servings: 4,
+    sourceUrl: "https://example.com/vegan-gluten-free-soy-free-stir-fry",
+    diets: ["vegan", "gluten-free", "soy-free"],
+    cuisine: "Asian",
+    ingredients: [
+      "tofu (soy-free alternative)",
+      "carrots",
+      "bell pepper",
+      "snow peas",
+      "ginger",
+      "garlic",
+      "coconut aminos",
+      "sesame oil",
+      "green onion",
+      "rice noodles"
+    ],
+    pricePerServing: 4.0,
+    popularity: 88
+  },
+  {
+    id: 13,
+    title: "Keto & Dairy-Free Avocado Salad",
+    image: "./avocado-salad.webp",
+    readyInMinutes: 10,
+    servings: 2,
+    sourceUrl: "https://example.com/keto-dairy-free-avocado-salad",
+    diets: ["keto", "dairy-free"],
+    cuisine: "Mediterranean",
+    ingredients: [
+      "avocado",
+      "cherry tomatoes",
+      "cucumber",
+      "red onion",
+      "olive oil",
+      "lemon juice",
+      "chopped parsley",
+      "sea salt"
+    ],
+    pricePerServing: 2.5,
+    popularity: 80
+  },
+  {
+    id: 14,
+    title: "Paleo & Vegan Sweet Potato & Kale Salad",
+    image: "./sweet-potato-kale-salad.webp",
+    readyInMinutes: 20,
+    servings: 4,
+    sourceUrl: "https://example.com/paleo-vegan-sweet-potato-kale-salad",
+    diets: ["paleo", "vegan"],
+    cuisine: "American",
+    ingredients: [
+      "sweet potatoes",
+      "kale",
+      "avocado",
+      "pumpkin seeds",
+      "olive oil",
+      "lemon juice",
+      "sea salt",
+      "black pepper"
+    ],
+    pricePerServing: 3.2,
+    popularity: 87
+  },
+  {
+    id: 15,
+    title: "Gluten-Free Beef and Vegetable Skillet",
+    image: "./beef-vegetable-skillet.webp",
+    readyInMinutes: 30,
+    servings: 4,
+    sourceUrl: "https://example.com/gluten-free-beef-vegetable-skillet",
+    diets: ["gluten-free", "meat-based"],
+    cuisine: "American",
+    ingredients: [
+      "ground beef",
+      "zucchini",
+      "bell peppers",
+      "onion",
+      "garlic",
+      "tomato",
+      "olive oil",
+      "spices (paprika, cumin, chili powder)",
+      "green beans",
+      "fresh parsley",
+      "salt",
+      "black pepper"
+    ],
+    pricePerServing: 4.5,
+    popularity: 90
   }
 ]
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const recipeContainer = document.getElementById('recipeAPI');
@@ -166,14 +358,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const checkboxes = document.querySelectorAll('.filter-group input[type="checkbox"]');
   const radios = document.querySelectorAll('.sort-group input[type="radio"]');
 
-  // Load all recipes initially
-  const loadRecipes = (recipe) => {
+  // dynamic template:
+  const loadRecipes = (recipes) => {
     recipeContainer.innerHTML = '';
     recipes.forEach(recipe => {
       const ingredientsList = recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('');
 
       const recipeCard = `
-        <a href="#">
+        <a href="${recipe.sourceUrl}">
           <article class="recipe-card">
             <img src="${recipe.image}" alt="${recipe.title}">
             <h2 class="title">${recipe.title}</h2>
@@ -205,11 +397,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Function to filter and sort the recipes based on selected options
+  // filter: 
   const filterRecipes = () => {
     let filteredRecipes = recipes;
 
-    // Filter based on selected checkboxes
     const selectedFilters = [];
     checkboxes.forEach(checkbox => {
       if (checkbox.checked && checkbox.id !== 'filter-all') {
@@ -219,12 +410,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (selectedFilters.length > 0) {
       filteredRecipes = recipes.filter(recipe =>
-        selectedFilters.every(filter => recipe.diets.includes(filter))
+        selectedFilters.every(filter => recipe.diets.includes(filter)) // here i used some(), which checks if the recepie meets at least one of the selected filter – every() requires that the recipe meets all of the selected filters.
       );
     }
 
-    // Sort recipes based on cooking time if any sorting is selected
-    const selectedSort = [...radios].find(radio => radio.checked)?.value;
+    // sort: 
+    const selectedSort = Array.from(radios).find(radio => radio.checked)?.value;
 
     if (selectedSort === 'Shortest') {
       filteredRecipes = filteredRecipes.sort((a, b) => a.readyInMinutes - b.readyInMinutes);
@@ -232,11 +423,11 @@ document.addEventListener("DOMContentLoaded", () => {
       filteredRecipes = filteredRecipes.sort((a, b) => b.readyInMinutes - a.readyInMinutes);
     }
 
-    // Render filtered and sorted recipes
+
     loadRecipes(filteredRecipes);
   };
 
-  // updateMessage function - dynamic text in message-section
+
   const updateMessage = () => {
     let message = '';
 
@@ -268,13 +459,12 @@ document.addEventListener("DOMContentLoaded", () => {
     messageSection.innerHTML = message || 'Hey hey hey, welcome!';
   };
 
-  // clear selection function 
   const clearSelections = () => {
     checkboxes.forEach(checkbox => checkbox.checked = false);
     radios.forEach(radio => radio.checked = false);
   };
 
-  // Initialization Function, event listenere - calling function 
+
   const init = () => {
     checkboxes.forEach(checkbox => {
       checkbox.addEventListener('change', () => {
@@ -296,3 +486,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   init();
 });
+
