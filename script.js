@@ -422,9 +422,18 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (selectedSort === 'Longest') {
       filteredRecipes = filteredRecipes.sort((a, b) => b.readyInMinutes - a.readyInMinutes);
     }
+    if (filteredRecipes.length === 0) {
+      showEmptyState();
+    } else {
+      loadRecipes(filteredRecipes);
+    }
+  };
 
-
-    loadRecipes(filteredRecipes);
+  const showEmptyState = () => {
+    messageSection.innerHTML = `
+        <h2 style="color:#0F18A4; text-decoration: underline;
+  text-decoration-color: red;" >.... hmm is it there such a thing? I dont have that sorry, what about trying something else?</h2>
+    `;
   };
 
 
@@ -441,22 +450,25 @@ document.addEventListener("DOMContentLoaded", () => {
         message += 'Oh I see, what about the fish and some tasty eggs from time to time? Are you sure you are not Vegetarian? Maybe?';
       }
       if (document.getElementById('filter-vegetarian').checked) {
-        message += '<br><br>Good choice, better cutting on all that meat!';
+        message += '<br>Good choice, better cutting on all that meat!';
       }
       if (document.getElementById('filter-gluten-free').checked) {
-        message += '<br><br>I\'m with you, gluten is poisoned!';
+        message += '<br>I\'m with you, gluten is poisoned!';
       }
       if (document.getElementById('filter-dairy-free').checked) {
-        message += '<br><br>Hmm, are you sure cheese is something you can fully give up?';
+        message += '<br>Hmm, are you sure cheese is something you can fully give up?';
+      }
+      if (document.getElementById('filter-meat-based').checked) {
+        message += '<br>Sometimes it\'s ok, with some meat.';
       }
       if (document.getElementById('sort-shortest').checked) {
-        message += '<br><br>Trying to impress someone with little time?';
+        message += '<br>Trying to impress someone with little time?';
       } else if (document.getElementById('sort-longest').checked) {
-        message += '<br><br>Do you really want to spend hours in the kitchen?';
+        message += '<br>Do you really want to spend hours in the kitchen?';
       }
     }
 
-    messageSection.innerHTML = message || 'Hey hey hey, welcome!';
+    messageSection.innerHTML = message || 'Hey, welcome! Please pick a recipe of your liking';
   };
 
   const clearSelections = () => {

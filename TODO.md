@@ -10,10 +10,9 @@ Week 6
 - [x] get placeholder images?
 - [x] FIX MESSED UP THE JAVASCRIPT
 - [x] be able to select multiples
-- [] filter amongst the recipes in the array
-- [] sort the recipes in the array
+- [x] filter amongst the recipes in the array
+- [x] sort the recipes in the array
 - [] get a random recipe from the array
-- [] ...
 
 ### Week 6 requirement
 - [x] Display all of the recipes (and their information) in the array when the website is loaded (using JavaScript)
@@ -22,7 +21,7 @@ Week 6
     - [x] from most to least ingredients and vice versa
     - [x] from longest to shortest cooking time and vice versa
 - [] Feature a button that selects a random recipe, and your page should display the selected item
-- [] Have an empty state, e.g. if there are no recipes matching the filter - show a meaningful message to the user
+- [x] Have an empty state, e.g. if there are no recipes matching the filter - show a meaningful message to the user
 
 
 Week 7
