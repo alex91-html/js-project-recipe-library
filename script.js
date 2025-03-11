@@ -357,8 +357,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const messageSection = document.getElementById('message-section');
   const checkboxes = document.querySelectorAll('.filter-group input[type="checkbox"]');
   const radios = document.querySelectorAll('.sort-group input[type="radio"]');
+  const randomBtn = document.getElementById('random-btn');
 
-  // dynamic template:
+  // Dynamic template:
   const loadRecipes = (recipes) => {
     recipeContainer.innerHTML = '';
     recipes.forEach(recipe => {
@@ -397,7 +398,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // filter: 
+  // Filter:
   const filterRecipes = () => {
     let filteredRecipes = recipes;
 
@@ -408,13 +409,21 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    if (selectedFilters.length > 0) {
+    // If the "random" filter is checked, pick a random recipe
+    const isRandom = document.getElementById('filter-random')?.checked;  // Make sure you have an id filter for random
+
+    if (isRandom) {
+      // If random filter is selected, show a random recipe
+      const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)];
+      filteredRecipes = [randomRecipe]; // Only show one random recipe
+    } else if (selectedFilters.length > 0) {
+      // Otherwise, apply filters based on the selected options
       filteredRecipes = recipes.filter(recipe =>
-        selectedFilters.every(filter => recipe.diets.includes(filter)) // here i used some(), which checks if the recepie meets at least one of the selected filter – every() requires that the recipe meets all of the selected filters.
+        selectedFilters.every(filter => recipe.diets.includes(filter)) // Ensure all selected filters are met
       );
     }
 
-    // sort: 
+    // Sorting:
     const selectedSort = Array.from(radios).find(radio => radio.checked)?.value;
 
     if (selectedSort === 'Shortest') {
@@ -422,10 +431,11 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (selectedSort === 'Longest') {
       filteredRecipes = filteredRecipes.sort((a, b) => b.readyInMinutes - a.readyInMinutes);
     }
+
     if (filteredRecipes.length === 0) {
       showEmptyState();
     } else {
-      loadRecipes(filteredRecipes);
+      loadRecipes(filteredRecipes); // Load the filtered recipes
     }
   };
 
@@ -435,7 +445,6 @@ document.addEventListener("DOMContentLoaded", () => {
   text-decoration-color: red;" >.... hmm is it there such a thing? I dont have that sorry, what about trying something else?</h2>
     `;
   };
-
 
   const updateMessage = () => {
     let message = '';
@@ -476,7 +485,6 @@ document.addEventListener("DOMContentLoaded", () => {
     radios.forEach(radio => radio.checked = false);
   };
 
-
   const init = () => {
     checkboxes.forEach(checkbox => {
       checkbox.addEventListener('change', () => {
@@ -498,4 +506,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   init();
 });
-
