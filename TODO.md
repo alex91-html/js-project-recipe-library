@@ -20,17 +20,23 @@ Week 6
 - [x] Be able to sort on one property, and update the results in the DOM, e.g.
     - [x] from most to least ingredients and vice versa
     - [x] from longest to shortest cooking time and vice versa
-- [] Feature a button that selects a random recipe, and your page should display the selected item
-- [] Have an empty state, e.g. if there are no recipes matching the filter - show a meaningful message to the user
+- [x] Feature a button that selects a random recipe, and your page should display the selected item
+- [x] Have an empty state, e.g. if there are no recipes matching the filter - show a meaningful message to the user
+
 
 
 Week 7
 ------
 
 ### Week 7 task list 
-- []
-- []
-- []
+- [x] Sign up for an account with the Spoonacular API.
+- [] Fetch real recipe data from Spoonacular's recipes/random endpoint
+- [] Display dynamic recipe cards based on the API data
+- [] Adapt filtering & sorting to match the API response format
+- [] Show a useful message to the user in case the daily quota has been reached
+- [] fix random 
+- [] fix empty state
+
 
 ### Week 7 requirement
 - [] Fetch real recipe data from Spoonacular's recipes/random endpoint
