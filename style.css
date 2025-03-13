@@ -108,7 +108,6 @@ header {
 .recipe-card {
   margin-top: 20px;
   width: 100%;
-  /* height: 100%; */
   max-width: 400px;
   background-color: white;
   border-radius: 16px;
@@ -130,8 +129,10 @@ header {
 
 .recipe-card img {
   width: 100%;
+  height: auto;
   border-radius: 12px;
   object-fit: cover;
+  display: block;
 }
 
 .title {
