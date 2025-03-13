@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         recipes = data.recipes;
         loadRecipes(recipes);
       })
-      .catch((error) => console.error("Error fetching data:", error));
+      .catch((error) => console.error("Error fetching data:", error)); //catches  the error 
     messageSection.innerHTML = `<h2 style="color:red;"> Please try later. Failed to load recipes.</h2>`;
   };
 
@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
         : "No particular diet";
 
       const recipeCard = `
-      <article class="recipe-card">
       <a href="${recipe.sourceUrl}" target="_blank">
+      <article class="recipe-card">
             <img src="${recipe.image}" alt="${recipe.title}">
             <h2 class="title">${recipe.title}</h2>
             <hr class="divider">
@@ -69,8 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
               <h3>Ingredients:</h3>
               <ul>${ingredientsList}</ul>
             </div>
+            </article>
             </a>
-          </article>
       `;
 
       recipeContainer.innerHTML += recipeCard;
