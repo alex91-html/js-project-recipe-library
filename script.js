@@ -7,20 +7,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const URL = `https://api.spoonacular.com/recipes/random?number=15&apiKey=98b7665281e94cf1b1803b2556236fdc`;
 
-  let recipes = [];
+  let recipes = []; // stored recipes
 
   // Fetch recipes
-  const fetchData = async () => {
-    try {
-      const response = await fetch(URL);
-      const data = await response.json();
-      console.log("API Response:", data);
-      recipes = data.recipes;
-      loadRecipes(recipes);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
+  const fetchData = () => {
+    fetch(URL)
+      .then((response) => response.json()) // Convert to JSON
+      .then((data) => {
+        console.log("API Response:", data);
+        recipes = data.recipes;
+        loadRecipes(recipes);
+      })
+      .catch((error) => console.error("Error fetching data:", error));
   };
+
 
   // dynamic recipes
   const loadRecipes = (recipes) => {
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
               return recipe.vegan || recipe.diets.includes("vegan");
             case "vegetarian":
               return recipe.vegetarian || recipe.diets.includes("vegetarian");
-            case "gluten-free":
+            case "gluten free":
               return recipe.glutenFree || recipe.diets.includes("gluten free");
             case "dairy-free":
               return recipe.dairyFree || recipe.diets.includes("dairy free");
@@ -102,8 +102,15 @@ document.addEventListener("DOMContentLoaded", () => {
       filteredRecipes = [filteredRecipes[Math.floor(Math.random() * filteredRecipes.length)]];
     }
 
-    // 🔥 Sorting logic
-    const selectedSort = Array.from(radios).find(radio => radio.checked)?.value;
+    // Sorting
+    let selectedSort;
+    for (let i = 0; i < radios.length; i++) {
+      if (radios[i].checked) {
+        selectedSort = radios[i].value;
+        break;
+      }
+    }
+
     if (selectedSort === "Shortest") {
       filteredRecipes.sort((a, b) => a.readyInMinutes - b.readyInMinutes);
     } else if (selectedSort === "Longest") {
@@ -111,9 +118,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     filteredRecipes.length ? loadRecipes(filteredRecipes) : showEmptyState();
+
   };
 
-  // 🔥 Show empty state if no matches found
+  // mpty state
   const showEmptyState = () => {
     messageSection.innerHTML = `
       <h2 style="color:#0F18A4; text-decoration: underline; text-decoration-color: #DE788B;">
@@ -122,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   };
 
-  // 🔥 Update the message based on selections
+  // dynamic messages
   const updateMessage = () => {
     let message = "";
     const isAllSelected = document.getElementById("filter-all")?.checked;
@@ -150,13 +158,13 @@ document.addEventListener("DOMContentLoaded", () => {
     messageSection.innerHTML = message || "Hey, welcome! Please pick a recipe of your liking";
   };
 
-  // 🔥 Clear all selections
+
   const clearSelections = () => {
     checkboxes.forEach(checkbox => (checkbox.checked = false));
     radios.forEach(radio => (radio.checked = false));
   };
 
-  // 🔥 Initialize App
+
   const init = () => {
     fetchData();
 
