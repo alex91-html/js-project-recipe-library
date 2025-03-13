@@ -9,16 +9,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let recipes = []; // stored recipes
 
-  // Fetch recipes
+  // Fetch recipes && error && max daily quota
   const fetchData = () => {
     fetch(URL)
       .then((response) => response.json()) // Convert to JSON
       .then((data) => {
+        if (data.status === "failed" && data.message.includes("You have reached your daily quota")) {
+          maxQuotaMessage(); return;
+        }
         console.log("API Response:", data);
         recipes = data.recipes;
         loadRecipes(recipes);
       })
       .catch((error) => console.error("Error fetching data:", error));
+    messageSection.innerHTML = `<h2 style="color:red;"> Please try later. Failed to load recipes.</h2>`;
+  };
+
+
+  const maxQuotaMessage = () => {
+    messageSection.innerHTML = `
+    <h2 style="color:red;"> I'm so sorry but you have reached the daily API limit.</h2><p>But no stress, try again tomorrow</p>`;
   };
 
 
@@ -35,8 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
         : "No particular diet";
 
       const recipeCard = `
-        <a href="${recipe.sourceUrl}" target="_blank">
-          <article class="recipe-card">
+      <article class="recipe-card">
+      <a href="${recipe.sourceUrl}" target="_blank">
             <img src="${recipe.image}" alt="${recipe.title}">
             <h2 class="title">${recipe.title}</h2>
             <hr class="divider">
@@ -59,8 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
               <h3>Ingredients:</h3>
               <ul>${ingredientsList}</ul>
             </div>
+            </a>
           </article>
-        </a>
       `;
 
       recipeContainer.innerHTML += recipeCard;
@@ -158,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
     messageSection.innerHTML = message || "Hey, welcome! Please pick a recipe of your liking";
   };
 
-
+  // forEach 
   const clearSelections = () => {
     checkboxes.forEach(checkbox => (checkbox.checked = false));
     radios.forEach(radio => (radio.checked = false));

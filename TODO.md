@@ -17,14 +17,5 @@ Week 7
 - [x] Fetch real recipe data from Spoonacular's recipes/random endpoint
 - [x] Display dynamic recipe cards based on the API data
 - [x] Adapt filtering & sorting to match the API response format
-- [] Show a useful message to the user in case the daily quota has been reached
+- [x] Show a useful message to the user in case the daily quota has been reached
 
-
-
-----
-
-
-#### tips: 
-* take it step by step, consol.log()  a lot.
-* check data thoroughly.
-* not about knowing everything, its about understanding. 
