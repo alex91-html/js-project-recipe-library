@@ -8,6 +8,7 @@
 - [x] fix empty state
 - [x] deployed to netfy
 - [] fix images rounded corner in all of them
+- [] fix spacing between ingredient lines
 - [] fix random 
 
 

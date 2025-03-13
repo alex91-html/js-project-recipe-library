@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const radios = document.querySelectorAll('.sort-group input[type="radio"]');
   const randomBtn = document.getElementById("random-btn");
 
-  const URL = `https://api.spoonacular.com/recipes/random?number=15&apiKey=98b7665281e94cf1b1803b2556236fdc`;
+  const URL = `https://api.spoonacular.com/recipes/random?number=19&apiKey=98b7665281e94cf1b1803b2556236fdc`;
 
-  let recipes = []; // stored recipes
+  let recipes = []; // stored recipes, a scope
 
   // Fetch recipes && error && max daily quota
   const fetchData = () => {
@@ -90,19 +90,18 @@ document.addEventListener("DOMContentLoaded", () => {
     if (selectedFilters.length > 0) {
       filteredRecipes = filteredRecipes.filter(recipe =>
         selectedFilters.every(filter => {
-          switch (filter) {
-            case "vegan":
-              return recipe.vegan || recipe.diets.includes("vegan");
-            case "vegetarian":
-              return recipe.vegetarian || recipe.diets.includes("vegetarian");
-            case "gluten free":
-              return recipe.glutenFree || recipe.diets.includes("gluten free");
-            case "dairy-free":
-              return recipe.dairyFree || recipe.diets.includes("dairy free");
-            case "pescatarian":
-              return recipe.pescatarian || recipe.diets.includes("pescatarian");
-            default:
-              return true;
+          if (filter === "vegan") {
+            return recipe.vegan || recipe.diets.includes("vegan");
+          } else if (filter === "vegetarian") {
+            return recipe.vegetarian || recipe.diets.includes("vegetarian");
+          } else if (filter === "gluten free") {
+            return recipe.glutenFree || recipe.diets.includes("gluten free");
+          } else if (filter === "dairy-free") {
+            return recipe.dairyFree || recipe.diets.includes("dairy free");
+          } else if (filter === "pescatarian") {
+            return recipe.pescatarian || recipe.diets.includes("pescatarian");
+          } else {
+            return true;
           }
         })
       );
@@ -110,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (isRandom && filteredRecipes.length > 0) {
       filteredRecipes = [filteredRecipes[Math.floor(Math.random() * filteredRecipes.length)]];
-    }
+    } // show only the selected random 
 
     // Sorting
     let selectedSort;

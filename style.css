@@ -129,7 +129,8 @@ header {
 
 .recipe-card img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  align-self: stretch;
   border-radius: 12px;
   object-fit: cover;
   display: block;
@@ -196,25 +197,9 @@ h2 {
   font-weight: 700;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 1200px) {
   .filters {
     flex-direction: row;
     gap: 88px;
   }
-
-  .tags {
-    flex-direction: row;
-    margin: 0 px;
-  }
 }
-
-
-/* @media (min-width: 700px) {
-  h1 {
-    margin-bottom: 44px;
-  }
-}
-
-@media (min-width: 900px) {}
-
-@media (min-width: 1200px) {} */
