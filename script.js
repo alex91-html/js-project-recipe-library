@@ -1,20 +1,22 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => { // runs init(), to load the script after the page content has been loaded
+  // Dom elements: 
   const recipeContainer = document.getElementById("recipeAPI");
   const messageSection = document.getElementById("message-section");
   const checkboxes = document.querySelectorAll('.filter-group input[type="checkbox"]');
   const radios = document.querySelectorAll('.sort-group input[type="radio"]');
   const randomBtn = document.getElementById("random-btn");
 
+  // API URL:
   const URL = `https://api.spoonacular.com/recipes/random?number=19&apiKey=98b7665281e94cf1b1803b2556236fdc`;
 
-  let recipes = []; // stored recipes, a scope
+  let recipes = []; // > this array holds all the recipes that has been fethced from the API so they can be used for filtering and sorting without making an other API request!
 
   // Fetch recipes && error && max daily quota
   const fetchData = () => {
     fetch(URL)
       .then((response) => response.json()) // Convert to JSON
       .then((data) => {
-        if (data.status === "failed" && data.message.includes("You have reached your daily quota")) {
+        if (data.status === "failed" && data.message.includes("You have reached your daily quota")) { // message
           maxQuotaMessage(); return;
         }
         console.log("API Response:", data);
@@ -25,14 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
     messageSection.innerHTML = `<h2 style="color:red;"> Please try later. Failed to load recipes.</h2>`;
   };
 
-
+  // show API quota limit message to user
   const maxQuotaMessage = () => {
     messageSection.innerHTML = `
     <h2 style="color:red;"> I'm so sorry but you have reached the daily API limit.</h2><p>But no stress, try again tomorrow</p>`;
   };
 
 
-  // dynamic recipes
+  // dynamic recipes cards template: 
   const loadRecipes = (recipes) => {
     recipeContainer.innerHTML = "";
     recipes.forEach(recipe => {
@@ -77,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Filtering
+  // Filtering and random:
   const filterRecipes = () => {
     let filteredRecipes = [...recipes];
 
@@ -130,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   };
 
-  // mpty state
+  // empty state message
   const showEmptyState = () => {
     messageSection.innerHTML = `
       <h2 style="color:#0F18A4; text-decoration: underline; text-decoration-color: #DE788B;">
@@ -139,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   };
 
-  // dynamic messages
+  // dynamic messages, on btn selection
   const updateMessage = () => {
     let message = "";
     const isAllSelected = document.getElementById("filter-all")?.checked;
@@ -167,7 +169,8 @@ document.addEventListener("DOMContentLoaded", () => {
     messageSection.innerHTML = message || "Hey, welcome! Please pick a recipe of your liking";
   };
 
-  // forEach 
+  // inizialize and event listeners: 
+
   const clearSelections = () => {
     checkboxes.forEach(checkbox => (checkbox.checked = false));
     radios.forEach(radio => (radio.checked = false));

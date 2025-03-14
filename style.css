@@ -106,7 +106,6 @@ header {
 }
 
 .recipe-card {
-  display: block;
   margin-top: 20px;
   width: 100%;
   max-width: 400px;
@@ -115,6 +114,20 @@ header {
   padding: 16px 16px 24px 16px;
   border: 1.5px solid #E9E9E9;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  height: fit-content;
+}
+
+a:hover .recipe-card {
+  cursor: pointer;
+  box-shadow: 0px 0px 30px 0px rgba(0, 24, 164, 0.20);
+  border: 1.5px solid #0018A4;
 }
 
 .companion {
@@ -176,19 +189,6 @@ header {
   border-top: 1px solid #E9E9E9;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-a:hover .recipe-card {
-  cursor: pointer;
-  box-shadow: 0px 0px 30px 0px rgba(0, 24, 164, 0.20);
-  border: 1.5px solid #0018A4;
-}
 
 ul {
   list-style-type: none;
