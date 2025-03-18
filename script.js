@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => { // runs init(), to load th
 
   // Fetch recipes && error && max daily quota
   const fetchData = () => {
-    fetch(URL)
+    fetch(URL) // This function gets the data from the API
       .then((response) => response.json()) // Convert to JSON
       .then((data) => {
         if (data.status === "failed" && data.message.includes("You have reached your daily quota")) { // message
@@ -87,8 +87,6 @@ document.addEventListener("DOMContentLoaded", () => { // runs init(), to load th
       .filter(checkbox => checkbox.checked && checkbox.id !== "filter-all")
       .map(checkbox => checkbox.value.toLowerCase());
 
-    const isRandom = document.getElementById("filter-random")?.checked;
-
     if (selectedFilters.length > 0) {
       filteredRecipes = filteredRecipes.filter(recipe =>
         selectedFilters.every(filter => {
@@ -108,11 +106,6 @@ document.addEventListener("DOMContentLoaded", () => { // runs init(), to load th
         })
       );
     }
-
-    if (isRandom && filteredRecipes.length > 0) {
-      filteredRecipes = [filteredRecipes[Math.floor(Math.random() * filteredRecipes.length)]];
-    } // show only the selected random 
-
     // Sorting
     let selectedSort;
     for (let i = 0; i < radios.length; i++) {
@@ -195,8 +188,12 @@ document.addEventListener("DOMContentLoaded", () => { // runs init(), to load th
     );
 
     randomBtn?.addEventListener("click", () => {
-      document.getElementById("filter-random").checked = true;
-      filterRecipes();
+      if (recipes.length > 0) {
+        const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)];
+        loadRecipes([randomRecipe]); // Show only one random recipe
+      } else {
+        messageSection.innerHTML = `<h2 style="color:red;">No recipes available. Try reloading.</h2>`;
+      }
     });
 
     updateMessage();
