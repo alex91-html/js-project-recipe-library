@@ -73,6 +73,10 @@ header {
   background: #FCECEA;
 }
 
+.sort-group .btn {
+  background: #FCECEA;
+}
+
 .sort-group .btn:hover {
   border-color: #0018A4;
   background-color: #ED708A;
