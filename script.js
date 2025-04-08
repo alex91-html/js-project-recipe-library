@@ -13,24 +13,30 @@ document.addEventListener("DOMContentLoaded", () => { // runs init(), to load th
 
   // Fetch recipes && error && max daily quota
   const fetchData = () => {
-    fetch(URL) // This function gets the data from the API
-      .then((response) => response.json()) // Convert to JSON
+    fetch(URL)
+      .then((response) => response.json())
       .then((data) => {
-        if (data.status === "failed" && data.message.includes("You have reached your daily quota")) { // message
-          maxQuotaMessage(); return;
+        if (data.status === "failed") {
+          if (data.message && data.message.includes("daily quota")) {
+            displayMaxQuotaMessage();
+          } else {
+            messageSection.innerHTML = `<h2 style="color:red;">An error occurred. Please try again later.</h2>`;
+          }
+          return;
         }
-        console.log("API Response:", data);
         recipes = data.recipes;
         loadRecipes(recipes);
       })
-      .catch((error) => console.error("Error fetching data:", error)); //catches  the error 
-    messageSection.innerHTML = `<h2 style="color:red;"> Please try later. Failed to load recipes.</h2>`;
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        messageSection.innerHTML = `<h2 style="color:red;">Failed to load recipes. Please try again later.</h2>`;
+      });
   };
 
-  // show API quota limit message to user
-  const maxQuotaMessage = () => {
+  const displayMaxQuotaMessage = () => {
     messageSection.innerHTML = `
-    <h2 style="color:red;"> I'm so sorry but you have reached the daily API limit.</h2><p>But no stress, try again tomorrow</p>`;
+      <h2 style="color:red;">I'm so sorry, but you have reached the daily API limit.</h2>
+      <p>But no stress, try again tomorrow!</p>`;
   };
 
 
@@ -106,6 +112,7 @@ document.addEventListener("DOMContentLoaded", () => { // runs init(), to load th
         })
       );
     }
+
     // Sorting
     let selectedSort;
     for (let i = 0; i < radios.length; i++) {
@@ -121,12 +128,17 @@ document.addEventListener("DOMContentLoaded", () => { // runs init(), to load th
       filteredRecipes.sort((a, b) => b.readyInMinutes - a.readyInMinutes);
     }
 
-    filteredRecipes.length ? loadRecipes(filteredRecipes) : showEmptyState();
-
+    // Update the DOM based on the filtered recipes
+    if (filteredRecipes.length > 0) {
+      loadRecipes(filteredRecipes);
+    } else {
+      showEmptyState();
+    }
   };
 
   // empty state message
   const showEmptyState = () => {
+    recipeContainer.innerHTML = ""; // Clear the recipe container
     messageSection.innerHTML = `
       <h2 style="color:#0F18A4; text-decoration: underline; text-decoration-color: #DE788B;">
         .... hmm, is there such a thing? I don't have that, sorry! Try something else?
@@ -140,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => { // runs init(), to load th
     const isAllSelected = document.getElementById("filter-all")?.checked;
 
     if (isAllSelected) {
-      message = "You greedy pig!";
+      message = "You greedy foody!";
       clearSelections();
     } else {
       if (document.getElementById("filter-vegan")?.checked)
